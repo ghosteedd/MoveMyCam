@@ -105,15 +105,6 @@ class CameraSettingsWindow:
             path += 'resources/icon.ico'
             self._window.iconbitmap(path)
         except Exception as e:
-            import tempfile
-            import base64
-            import zlib
-            icon_hash = r'eJxjYGAEQgEBBiDJwZDBysAgxsDAoAHEQCEGBQaIOAg4sDIgACMUj4JRMApGwQgF/ykEAFXxQRc='
-            icon = zlib.decompress(base64.b64decode(icon_hash))
-            _, icon_path = tempfile.mkstemp()
-            with open(icon_path, 'wb') as icon_file:
-                icon_file.write(icon)
-            self._window.iconbitmap(icon_path)
             _logger.warning('[CameraSettingsWindow initialize] Reading icon file failed! Used empty icon')
             _logger.debug(f'[CameraSettingsWindow initialize] Error: {e}')
         self._lbl_address = _tk.Label(self._window, text='Address:')
@@ -251,15 +242,6 @@ class SettingsWindow:
             path += 'resources/icon.ico'
             self._window.iconbitmap(path)
         except Exception as e:
-            import tempfile
-            import base64
-            import zlib
-            icon_hash = r'eJxjYGAEQgEBBiDJwZDBysAgxsDAoAHEQCEGBQaIOAg4sDIgACMUj4JRMApGwQgF/ykEAFXxQRc='
-            icon = zlib.decompress(base64.b64decode(icon_hash))
-            _, icon_path = tempfile.mkstemp()
-            with open(icon_path, 'wb') as icon_file:
-                icon_file.write(icon)
-            self._window.iconbitmap(icon_path)
             _logger.warning('[SettingsWindow initialize] Reading icon file failed! Used empty icon')
             _logger.debug(f'[SettingsWindow initialize]  Error: {e}')
         hot_key_frame = _ttk.Frame(self._window)

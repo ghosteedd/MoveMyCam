@@ -35,7 +35,7 @@ class CameraController:
             _logger.debug('[CamController->check_connection] Incorrect arguments for check connection')
             return 1, None
         try:
-            camera = _onvif.ONVIFCamera(address, port, username, password)
+            camera = _onvif.ONVIFCamera(address, port, username, password, 'resources/wsdl')
         except Exception as e:
             _logger.error(f'[CameraController->check_connection] Connection to "{address}" failed!')
             _logger.debug(f'[CameraController->check_connection] Error: {e}')
